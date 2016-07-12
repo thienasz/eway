@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VgUEWF5XGwEHVlNTDwE="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(){}function r(t){function e(t){return t&&t instanceof n?t:t?a(t,i,o):o()}function u(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,f=0;s>f;f++)a[f].apply(i,r);var u=c[v[n]];return u&&u.push([y,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return f[t]=f[t]||r(u)}function h(t,e){s(t,function(t,n){e=e||"feature",v[n]=e,e in c||(c[e]=[])})}var m={},v={},y={on:d,emit:u,get:p,listeners:l,context:e,buffer:h};return y}function o(){return new n}var i="nr@context",a=t("gos"),s=t(1),c={},f={},u=e.exports=r();u.backlog=c},{1:21,gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t){try{i.console&&console.log(t)}catch(e){}}var n,r=t("ee"),o=t(1),i={};try{n=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(i.console=!0,-1!==n.indexOf("dev")&&(i.dev=!0),-1!==n.indexOf("nr_dev")&&(i.nrDev=!0))}catch(a){}i.nrDev&&r.on("internal-error",function(t){e(t.stack)}),i.dev&&r.on("fn-err",function(t,n,r){e(r.stack)}),i.dev&&(e("NR AGENT IN DEVELOPMENT MODE"),e("flags: "+o(i,function(t){return t}).join(", ")))},{1:21,ee:"QJf3ax"}],4:[function(t){function e(t,e,n,i,a){try{f?f-=1:r("err",[a||new UncaughtException(t,e,n)])}catch(c){try{r("ierr",[c,(new Date).getTime(),!0])}catch(u){}}return"function"==typeof s?s.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(6),i=t("ee"),a=t("loader"),s=window.onerror,c=!1,f=0;a.features.err=!0,t(3),window.onerror=e;try{throw new Error}catch(u){"stack"in u&&(t(4),t(5),"addEventListener"in window&&t(1),a.xhrWrappable&&t(2),c=!0)}i.on("fn-start",function(){c&&(f+=1)}),i.on("fn-err",function(t,e,r){c&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){c&&!this.thrown&&f>0&&(f-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:5,2:8,3:3,4:7,5:6,6:22,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],5:[function(t,e){function n(t){for(var e=t;e&&!e.hasOwnProperty("addEventListener");)e=Object.getPrototypeOf(e);e&&r(e)}function r(t){a.inPlace(t,["addEventListener","removeEventListener"],"-",o)}function o(t){return t[1]}var i=t("ee").get("events"),a=t(1)(i),s=t("gos");e.exports=i,r(window),"getPrototypeOf"in Object?(n(document),n(XMLHttpRequest.prototype)):XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&r(XMLHttpRequest.prototype),i.on("addEventListener-start",function(t){if(t[1]){var e=t[1];if("function"==typeof e){var n=s(e,"nr@wrapped",function(){return a(e,"fn-",null,e.name||"anonymous")});this.wrapped=t[1]=n}else"function"==typeof e.handleEvent&&a.inPlace(e,["handleEvent"],"fn-")}}),i.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:23,ee:"QJf3ax",gos:"7eSDFh"}],6:[function(t,e){var n=t("ee").get("raf"),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:23,ee:"QJf3ax"}],7:[function(t,e){function n(t,e,n){t[0]=i(t[0],"fn-",null,n)}function r(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=i(t[0],"fn-",this,n)}var o=t("ee").get("timer"),i=t(1)(o);e.exports=o,i.inPlace(window,["setTimeout","setImmediate"],"setTimer-"),i.inPlace(window,["setInterval"],"setInterval-"),i.inPlace(window,["clearTimeout","clearImmediate"],"clearTimeout-"),o.on("setInterval-start",n),o.on("setTimer-start",r)},{1:23,ee:"QJf3ax"}],8:[function(t,e){function n(t,e){e=e||this;var n=i.context(e);e.readyState>3&&!n.resolved&&(n.resolved=!0,i.emit("xhr-resolved",[],e));try{c.inPlace(e,l,"fn-",r)}catch(o){}}function r(t,e){return e}function o(t,e){for(var n in t)e[n]=t[n];return e}var i=t("ee").get("xhr"),a=t(1),s=t(2),c=s(i),f=s(a),u=NREUM.o,d=u.XHR,l=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout","onreadystatechange"];e.exports=i,window.XMLHttpRequest=function(t){var e=new d(t);try{i.emit("new-xhr",[e],e),e.hasOwnProperty("addEventListener")&&f.inPlace(e,["addEventListener","removeEventListener"],"-",r),e.addEventListener("readystatechange",n,!1)}catch(o){try{i.emit("internal-error",[o])}catch(a){}}return e},o(d,XMLHttpRequest),XMLHttpRequest.prototype=d.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",r),i.on("send-xhr-start",n),i.on("open-xhr-start",n)},{1:5,2:23,ee:"QJf3ax"}],9:[function(t){function e(t){var e=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var o=0;u>o;o++)t.removeEventListener(f[o],this.listener,!1);if(!e.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=n(t,this.lastSize);if(i&&(r.rxSize=i),this.sameOrigin){var s=t.getResponseHeader("X-NewRelic-App-Data");s&&(e.cat=s.split(", ").pop())}}else e.status=0;r.cbTime=this.cbTime,c.emit("xhr-done",[t],t),a("xhr",[e,r,this.startTime])}}}function n(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var o="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return r(o)}function r(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function o(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var i=t("loader");if(i.xhrWrappable){var a=t("handle"),s=t(2),c=t("ee"),f=["load","error","abort","timeout"],u=f.length,d=t(1),l=t(3),p=window.XMLHttpRequest;i.features.xhr=!0,t(5),t(4),c.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=e,n.ended=!1,n.xhrGuids={},n.lastSize=null,l&&(l>34||10>l)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),c.on("open-xhr-start",function(t){this.params={method:t[0]},o(this,t[1]),this.metrics={}}),c.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),c.on("send-xhr-start",function(t,e){var n=this.metrics,o=t[0],i=this;if(n&&o){var a=r(o);a&&(n.txSize=a)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof e.onload))&&i.end(e)}catch(n){try{c.emit("internal-error",[n])}catch(r){}}};for(var s=0;u>s;s++)e.addEventListener(f[s],this.listener,!1)}),c.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),c.on("xhr-load-added",function(t,e){var n=""+d(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),c.on("xhr-load-removed",function(t,e){var n=""+d(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),c.on("addEventListener-end",function(t,e){e instanceof p&&"load"===t[0]&&c.emit("xhr-load-added",[t[1],t[2]],e)}),c.on("removeEventListener-end",function(t,e){e instanceof p&&"load"===t[0]&&c.emit("xhr-load-removed",[t[1],t[2]],e)}),c.on("fn-start",function(t,e,n){e instanceof p&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),c.on("fn-end",function(t,e){this.xhrCbStart&&c.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:10,3:12,4:8,5:5,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],10:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],11:[function(t,e){function n(t,e){return function(){r(t,[(new Date).getTime()].concat(i(arguments)),null,e)}}var r=t("handle"),o=t(1),i=t(2);"undefined"==typeof window.newrelic&&(newrelic=NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit"],s=["addPageAction"],c="api-";o(a,function(t,e){newrelic[e]=n(c+e,"api")}),o(s,function(t,e){newrelic[e]=n(c+e)}),e.exports=newrelic,newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),r("err",[t,(new Date).getTime()])}},{1:21,2:22,handle:"D5DuLP"}],12:[function(t,e){var n=0,r=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);r&&(n=+r[1]),e.exports=n},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],D5DuLP:[function(t,e){function n(t,e,n,o){r.buffer([t],o),r.emit(t,e,n)}var r=t("ee").get("handle");e.exports=n,n.ee=r},{ee:"QJf3ax"}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],G9z0Bl:[function(t,e){function n(){if(!h++){var t=p.info=NREUM.info,e=f.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){s(d,function(e,n){t[e]||(t[e]=n)});var n="https"===u.split(":")[0]||t.sslForHttp;p.proto=n?"https://":"http://",a("mark",["onload",i()],null,"api");var r=f.createElement("script");r.src=p.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()],null,"api")}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=window,f=c.document;NREUM.o={ST:setTimeout,XHR:c.XMLHttpRequest,REQ:c.Request,EV:c.Event,PR:c.Promise,MO:c.MutationObserver},t(2);var u=(""+location).split("?")[0],d={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-885.min.js"},l=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),p=e.exports={offset:i(),origin:u,features:{},xhrWrappable:l};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),c.addEventListener("load",n,!1)):(f.attachEvent("onreadystatechange",r),c.attachEvent("onload",n)),a("mark",["firstbyte",i()],null,"api");var h=0},{1:21,2:11,handle:"D5DuLP"}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],21:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],22:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],23:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@original",a=Object.prototype.hasOwnProperty,s=!1;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,c;try{i=this,n=o(arguments),s="function"==typeof r?r(n,i):r||{}}catch(u){d([u,"",[n,i,a],s])}f(e+"start",[n,i,a],s);try{return c=t.apply(i,n)}catch(l){throw f(e+"err",[n,i,l],s),l}finally{f(e+"end",[n,i,c],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=t,u(t,nrWrapper),nrWrapper)}function c(t,r,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!s){s=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}s=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=c,e.flag=i,e}},{1:22,ee:"QJf3ax"}]},{},["G9z0Bl",4,9]);</script>
+<link rel="shortcut icon" href="http://uspsstamps.com/sites/all/themes/btp/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="canonical" href="/stories/design-magic" />
+<link rel="shortlink" href="/node/2597" />
+  <title>Design Like Magic | USPS Stamps</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/67538/744042/css/fonts.css" />
+  <link type="text/css" rel="stylesheet" href="http://uspsstamps.com/sites/default/files/css/css_rEI_5cK_B9hB4So2yZUtr5weuEV3heuAllCDE6XsIkI.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://uspsstamps.com/sites/default/files/css/css_uKPCRCN7idfVQRWlAvG3YhpbpbBA99diImFCOUi0XBw.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://uspsstamps.com/sites/default/files/css/css_rW250O8JJa-NbMTpNpzByS1cxvIIxX9SMEXzDa-ux5k.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://uspsstamps.com/sites/default/files/css/css_gXZLWiWIAcvfnwCUoGYQ8wwMIJc5RLyQnWJ9RmBgXrs.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://uspsstamps.com/sites/default/files/css/css_nHCQHewdGdpT8bJ8QmepjnsuBVFcCnYEGF_ucqTUS3M.css" media="print" />
+<link type="text/css" rel="stylesheet" href="http://uspsstamps.com/sites/default/files/css/css_47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU.css" media="screen" />
+<link type="text/css" rel="stylesheet" href="http://uspsstamps.com/sites/default/files/features/harry-potter/css/local.css?nwu07f" media="all" />
+  <!--[if lt IE 9]>
+  <link rel="stylesheet" href="/sites/all/themes/btp/css/lt-ie9.css">
+  <![endif]-->
+
+  <script src="/sites/all/themes/btp/js/vendor/modernizr.custom.53718.js"></script>
+  <script src="//cdn.optimizely.com/js/706640043.js"></script>
+
+  
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","headline":"Design Like Magic","url":"http://uspsstamps.com/stories/design-magic","dateCreated":"2013-11-19T10:59:14-05:00","articleSection":"In the Spotlight","creator":["USPS Stamps"],"thumbnailUrl":"http://uspsstamps.com/sites/default/files/thumbnails/features/HP_thumbnail.jpg"}</script>
+  
+</head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-2597 node-type-feature" >
+  <div id="skip-link">
+    <a href="#main" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    
+<div class="page">
+
+  <div class="header-main">
+    <div class="header-top clearfix">
+      <h1 class="sitename"><a href="/"><img src="/sites/all/themes/btp/img/uspsmark.png" alt="USPS Stamps" /></a></h1>
+      
+      <ul class="nav nav-main nav-primary"><li><a href="/stamps">Stamps</a></li><li><a href="/calendar">Calendar</a></li></ul><ul class="nav nav-main nav-secondary"><li><a href="#join">Join</a></li><li><a href="#search">Search</a></li></ul>
+      <a class="expandlink" href="#menu"><span class="border"></span><span class="icon"></span></a>
+    </div>
+    <div class="header-bottom">
+      <ul class="nav nav-tertiary"><li><a href="/blog/2015/8/7">Blog</a></li><li><a href="/stamps/series">Stamp Series</a></li><li><a href="/products/correspondence">Correspondence</a></li><li><a href="/products/collectibles">Collectibles</a></li></ul>    </div>
+  </div>
+  
+  <div id="main" class="main clearfix">
+
+    <!--[if lte IE 8]>
+    <div class="outdated-browser">
+      <div class="centered-column">
+        <div class="inner">
+          You are using an outdated browser. <a href="http://browsehappy.com/">Consider upgrading to enjoy a faster, safer web.</a>
+        </div>
+      </div>
+    </div>
+    <![endif]-->
+
+        
+        
+    
+    
+      <div class="region region-content">
+    
+
+
+<div id="node-2597" class="node node-feature clearfix">
+	<div class="feature">
+		<div class="fheader pane-fullscreen">
+	<div class="fheader-fixed pane-fullscreen--fixed">
+		<div class="masthead">
+			<h3 class="fstampname"><a href="/stamps/harry-potter">
+				<span data-picture data-alt="Harry Potter">
+					<span data-src="/sites/default/files/features/harry-potter/img/fstampname.png"></span>
+					<span data-src="/sites/default/files/features/harry-potter/img/fstampname@2x.png" data-media="(min-device-pixel-ratio: 2.0)"></span>
+
+					<noscript>
+						<img src="/sites/default/files/features/harry-potter/img/fstampname.png" alt="Harry Potter">
+					</noscript>
+				</span>
+			</a></h3>
+			<h1 class="ftitle">
+				<span data-picture data-alt="Design Like Magic">
+					<span data-src="/sites/default/files/features/harry-potter/img/ftitle.png"></span>
+					<span data-src="/sites/default/files/features/harry-potter/img/ftitle@2x.png" data-media="(min-device-pixel-ratio: 2.0)"></span>
+					<span data-src="/sites/default/files/features/harry-potter/img/ftitle.png" data-media="(max-width: 480px and min-device-pixel-ratio: 2.0)"></span>
+
+					<noscript>
+						<img src="/sites/default/files/features/harry-potter/img/ftitle.png" alt="Design Like Magic">
+					</noscript>
+				</span>
+			</h1>
+
+			<div class="fdek">When envisioning the new Harry Potter stamps, the Postal Service and Warner Bros. worked some wizardry of their own.</div>
+		</div>
+		<div class="bg">
+			<div class="imgwrap" data-ratio="0.6824">
+				<span class="picture" data-picture data-alt="">
+					<span data-src="/sites/default/files/features/harry-potter/img/fheader.jpg"></span>
+					<span data-src="/sites/default/files/features/harry-potter/img/fheader-md.jpg" data-media="(max-width: 700px)"></span>
+					<span data-src="/sites/default/files/features/harry-potter/img/fheader-md700.jpg" data-media="(max-width: 540px)"></span>
+
+					<noscript>
+						<img src="/sites/default/files/features/harry-potter/img/fheader.jpg" alt="">
+					</noscript>
+				</span>
+				</div>
+		</div>
+	</div>
+</div>
+
+<div class="fcontent fcontent-1">
+	<img class="seal" src="/sites/default/files/features/harry-potter/img/seal.png" />
+
+	<div class="fsection">
+		<div class="faside byline">
+			<ul class="fbyline">
+				<li>Story by <strong>Kristen Kimmel</strong></li>
+				<li>Stamp art direction by <strong><a href="/people/william-j-gicker">Bill Gicker</a> &amp; <a href="/people/greg-breeding">Greg Breeding</a></strong></li>
+				<li>Stamp design by <strong><a href="/people/greg-breeding">Greg Breeding</a></strong></li>
+			</ul>
+		</div>
+		
+		<p><span class="first-words">A boy receives an unexpected letter,</span> marked with an unusual wax seal and addressed to him at “The Cupboard under the Stairs.” A flurry of letters follows, inviting him into a world of wizardry, adventure, and magic.</p>
+		<p>While these events are fictional — first played out in J.K. Rowling’s novels, then cast onto the big screen by Warner Bros. — their enchanting effect is real. Since the first Harry Potter book hit stores in the U.K. in 1997, more than 450 million copies in 74 different languages have been sold. The movie series by Warner Bros., a 10-year saga that began in 2001, is the highest grossing franchise of all time.</p>
+		<p>Now, the tale is appearing through yet another medium.</p>
+		<p>“Harry Potter has had such an impact on American culture, and these stamps celebrate that,” says USPS creative director Bill Gicker. “The books sparked kids’ interest in reading again, and the films are such a spectacular rendition of the stories.”</p>
+		<p>Stamp designer Greg Breeding is no stranger to Harry Potter’s epic world. His children grew up reading the books and watching the movies, and he joined in along with them. Yet his familiarity with the subject didn’t spare him a classic design challenge: finding creative solutions within the format.</p>
+		<p>The first constraint was self-imposed. “I made the decision pretty early on that the stamps should be character-based,” Breeding says. “There are a lot of wonderful aspects of Harry Potter like the Hogwarts Express, Hogwarts castle, and Hogsmeade, but the scale and extensive detail of those scenes wouldn’t work well at stamp size.”</p>
+
+	</div>
+</div>
+
+
+<div class="stamp-carousel">
+
+	<div class="slides">
+				<div id="slide-1" class="slide pane-fullscreen first">
+			<div class="inner pane-fullscreen--fixed">
+				<div class="imgwrap lazyload" data-minwidth="1040" data-src="/sites/default/files/features/harry-potter/img/booklet/HarryPotter_0001.JPG" data-ratio="0.66666666667">
+					<img />
+				</div>
+			</div>
+		</div>
+				<div id="slide-2" class="slide pane-fullscreen hidden">
+			<div class="inner pane-fullscreen--fixed">
+				<div class="imgwrap lazyload" data-minwidth="1040" data-src="/sites/default/files/features/harry-potter/img/booklet/HarryPotter_0002.JPG" data-ratio="0.66666666667">
+					<img />
+				</div>
+			</div>
+		</div>
+				<div id="slide-3" class="slide pane-fullscreen hidden">
+			<div class="inner pane-fullscreen--fixed">
+				<div class="imgwrap lazyload" data-minwidth="1040" data-src="/sites/default/files/features/harry-potter/img/booklet/HarryPotter_0003.JPG" data-ratio="0.66666666667">
+					<img />
+				</div>
+			</div>
+		</div>
+				<div id="slide-4" class="slide pane-fullscreen hidden">
+			<div class="inner pane-fullscreen--fixed">
+				<div class="imgwrap lazyload" data-minwidth="1040" data-src="/sites/default/files/features/harry-potter/img/booklet/HarryPotter_0004.JPG" data-ratio="0.66666666667">
+					<img />
+				</div>
+			</div>
+		</div>
+				<div id="slide-5" class="slide pane-fullscreen hidden">
+			<div class="inner pane-fullscreen--fixed">
+				<div class="imgwrap lazyload" data-minwidth="1040" data-src="/sites/default/files/features/harry-potter/img/booklet/HarryPotter_0005.JPG" data-ratio="0.66666666667">
+					<img />
+				</div>
+			</div>
+		</div>
+				<div id="slide-6" class="slide pane-fullscreen hidden">
+			<div class="inner pane-fullscreen--fixed">
+				<div class="imgwrap lazyload" data-minwidth="1040" data-src="/sites/default/files/features/harry-potter/img/booklet/HarryPotter_0006.JPG" data-ratio="0.66666666667">
+					<img />
+				</div>
+			</div>
+		</div>
+				<div id="slide-7" class="slide pane-fullscreen hidden">
+			<div class="inner pane-fullscreen--fixed">
+				<div class="imgwrap lazyload" data-minwidth="1040" data-src="/sites/default/files/features/harry-potter/img/booklet/HarryPotter_0007.JPG" data-ratio="0.66666666667">
+					<img />
+				</div>
+			</div>
+		</div>
+				<div id="slide-8" class="slide pane-fullscreen hidden">
+			<div class="inner pane-fullscreen--fixed">
+				<div class="imgwrap lazyload" data-minwidth="1040" data-src="/sites/default/files/features/harry-potter/img/booklet/HarryPotter_0008.JPG" data-ratio="0.66666666667">
+					<img />
+				</div>
+			</div>
+		</div>
+				<div id="slide-9" class="slide pane-fullscreen hidden">
+			<div class="inner pane-fullscreen--fixed">
+				<div class="imgwrap lazyload" data-minwidth="1040" data-src="/sites/default/files/features/harry-potter/img/booklet/HarryPotter_0009.JPG" data-ratio="0.66666666667">
+					<img />
+				</div>
+			</div>
+		</div>
+				<div id="slide-10" class="slide pane-fullscreen hidden">
+			<div class="inner pane-fullscreen--fixed">
+				<div class="imgwrap lazyload" data-minwidth="1040" data-src="/sites/default/files/features/harry-potter/img/booklet/HarryPotter_0010.JPG" data-ratio="0.66666666667">
+					<img />
+				</div>
+			</div>
+		</div>
+				<div id="slide-11" class="slide pane-fullscreen hidden">
+			<div class="inner pane-fullscreen--fixed">
+				<div class="imgwrap lazyload" data-minwidth="1040" data-src="/sites/default/files/features/harry-potter/img/booklet/HarryPotter_0011.JPG" data-ratio="0.66666666667">
+					<img />
+				</div>
+			</div>
+		</div>
+				<div id="slide-12" class="slide pane-fullscreen hidden">
+			<div class="inner pane-fullscreen--fixed">
+				<div class="imgwrap lazyload" data-minwidth="1040" data-src="/sites/default/files/features/harry-potter/img/booklet/HarryPotter_0012.JPG" data-ratio="0.66666666667">
+					<img />
+				</div>
+			</div>
+		</div>
+				<div id="slide-13" class="slide pane-fullscreen hidden">
+			<div class="inner pane-fullscreen--fixed">
+				<div class="imgwrap lazyload" data-minwidth="1040" data-src="/sites/default/files/features/harry-potter/img/booklet/HarryPotter_0013.JPG" data-ratio="0.66666666667">
+					<img />
+				</div>
+			</div>
+		</div>
+				<div id="slide-14" class="slide pane-fullscreen hidden">
+			<div class="inner pane-fullscreen--fixed">
+				<div class="imgwrap lazyload" data-minwidth="1040" data-src="/sites/default/files/features/harry-potter/img/booklet/HarryPotter_0014.JPG" data-ratio="0.66666666667">
+					<img />
+				</div>
+			</div>
+		</div>
+				<div id="slide-15" class="slide pane-fullscreen hidden">
+			<div class="inner pane-fullscreen--fixed">
+				<div class="imgwrap lazyload" data-minwidth="1040" data-src="/sites/default/files/features/harry-potter/img/booklet/HarryPotter_0015.JPG" data-ratio="0.66666666667">
+					<img />
+				</div>
+			</div>
+		</div>
+				<div id="slide-16" class="slide pane-fullscreen hidden">
+			<div class="inner pane-fullscreen--fixed">
+				<div class="imgwrap lazyload" data-minwidth="1040" data-src="/sites/default/files/features/harry-potter/img/booklet/HarryPotter_0016.JPG" data-ratio="0.66666666667">
+					<img />
+				</div>
+			</div>
+		</div>
+				<div id="slide-17" class="slide pane-fullscreen hidden">
+			<div class="inner pane-fullscreen--fixed">
+				<div class="imgwrap lazyload" data-minwidth="1040" data-src="/sites/default/files/features/harry-potter/img/booklet/HarryPotter_0017.JPG" data-ratio="0.66666666667">
+					<img />
+				</div>
+			</div>
+		</div>
+				<div id="slide-18" class="slide pane-fullscreen hidden">
+			<div class="inner pane-fullscreen--fixed">
+				<div class="imgwrap lazyload" data-minwidth="1040" data-src="/sites/default/files/features/harry-potter/img/booklet/HarryPotter_0018.JPG" data-ratio="0.66666666667">
+					<img />
+				</div>
+			</div>
+		</div>
+				<div id="slide-19" class="slide pane-fullscreen hidden">
+			<div class="inner pane-fullscreen--fixed">
+				<div class="imgwrap lazyload" data-minwidth="1040" data-src="/sites/default/files/features/harry-potter/img/booklet/HarryPotter_0019.JPG" data-ratio="0.66666666667">
+					<img />
+				</div>
+			</div>
+		</div>
+				<div id="slide-20" class="slide pane-fullscreen hidden">
+			<div class="inner pane-fullscreen--fixed">
+				<div class="imgwrap lazyload" data-minwidth="1040" data-src="/sites/default/files/features/harry-potter/img/booklet/HarryPotter_0020.JPG" data-ratio="0.66666666667">
+					<img />
+				</div>
+			</div>
+		</div>
+				<div id="slide-21" class="slide pane-fullscreen hidden">
+			<div class="inner pane-fullscreen--fixed">
+				<div class="imgwrap lazyload" data-minwidth="1040" data-src="/sites/default/files/features/harry-potter/img/booklet/HarryPotter_0021.JPG" data-ratio="0.66666666667">
+					<img />
+				</div>
+			</div>
+		</div>
+				<div id="slide-22" class="slide pane-fullscreen hidden">
+			<div class="inner pane-fullscreen--fixed">
+				<div class="imgwrap lazyload" data-minwidth="1040" data-src="/sites/default/files/features/harry-potter/img/booklet/HarryPotter_0022.JPG" data-ratio="0.66666666667">
+					<img />
+				</div>
+			</div>
+		</div>
+			</div>
+
+	<div class="animversion">
+		<div class="animversion-papa imgwrap lazyload" data-maxwidth="1040" data-minwidth="801" data-src="/sites/default/files/features/harry-potter/img/booklet/animated/HarryPotter_1040.gif">
+			<img />
+		</div>
+		<div class="animversion-mama imgwrap lazyload" data-maxwidth="800" data-minwidth="481" data-src="/sites/default/files/features/harry-potter/img/booklet/animated/HarryPotter_800.gif">
+			<img />
+		</div>
+		<div class="animversion-baby imgwrap lazyload" data-maxwidth="480" data-src="/sites/default/files/features/harry-potter/img/booklet/animated/HarryPotter_480.gif">
+			<img />
+		</div>
+	</div>
+
+	<div class="helper">
+		<h3>Scroll</h3>
+		<img src="/sites/default/files/features/harry-potter/img/icon-caron.png" height="9" width="18" />
+	</div>
+
+	<div class="controls">
+		<ul>
+			<li><a href="#slide-1" data-target="1" class="everactive">Front</a></li>
+			<li><a href="#slide-4" data-target="4">First flap</a></li>
+			<li><a href="#slide-7" data-target="7">Second flap</a></li>
+			<li><a href="#slide-12" data-target="12">Fully opened</a></li>
+			<li><a href="#slide-18" data-target="18">Back</a></li>
+			<li><a href="#slide-22" data-target="22">Front (again)</a></li>
+		</ul>
+	</div>
+
+	<div class="info-trigger">
+		<img src="/sites/default/files/features/harry-potter/img/icon-info.png" height="22" width="22" /> <span class="heading">About the stamp booklet</span>
+	</div>
+
+	<div class="info">
+		<div class="col">
+			<a href="#close" class="closelink"><img src="/sites/default/files/features/harry-potter/img/icon-close.png" height="22" width="22" alt="close" /></a>
+			<p>The first block introduces main characters as we meet them in the first movie, <cite>Harry Potter and the Sorcerer’s Stone</cite>: Harry Potter as he curiously examines a letter from Hogwarts; and Ron Weasley and Hermione Granger, who quickly become Harry’s best friends and allies in his fight against the Dark Forces of the wizarding world.</p>
+			<p>The second block features some of the most beloved creatures from the films (Fawkes, Hedwig, Buckbeak, and Dobby), while the third block pays tribute to the important Hogwarts professors: Albus Dumbledore, Severus Snape, Minerva McGonagall, and Rubeus Hagrid.</p>
+			<p>The fourth block of stamps revisits major characters at a later point in the story, including an older Hermione, Harry, and Ron; eccentric but loyal Luna Lovegood; confident and courageous Ginny Weasley; and twins and pranksters Fred and George Weasley. The fifth and final block shows notorious villains — Draco Malfoy, Bellatrix Lestrange, and Voldemort — as well as Harry Potter in the last battle against the Dark Lord.</p>
+		</div>
+	</div>
+
+</div>
+
+<div class="fcontent fcontent-2">
+	<div class="fsection">
+		<p>With 20 stamps to work with, Breeding knew he couldn’t feature all of Harry Potter’s colorful characters. Together with Warner Bros., he narrowed down a decade’s worth of characters to a core group: personalities like Harry, Ron, and Hermione; the notable professors; even a few villains. Since the United States Postal Service doesn’t feature living people on stamps, Breeding had to be careful to show the actors as characters in costume, portrayed within the context of the movie.</p>
+		<p>Then, Warner Bros. gave Breeding access to a collection of preapproved movie stills, which served as the basis for the stamp designs. While the collection was large — about 10,000 deep — the images themselves presented an inherent challenge.</p>
+		<p>“Film and stamp composition are drastically different,” Breeding explains. “These movie stills are designed to be presented at 70 feet wide.” Stamps, of course, are about one inch wide.</p>
+
+		<div class="figure figure-sidebar figure--crop crossfader">
+			<div class="imgwrap imgwrap-top"><img src="/sites/default/files/features/harry-potter/img/crop-still.jpg" alt="Still image from the movie."></div>
+			<div class="imgwrap imgwrap-bottom"><img src="/sites/default/files/features/harry-potter/img/crop-stamp.jpg" alt="Cropped still used in the stamp."></div>
+			<div class="caption">Click and drag to see how a movie still was cropped to fit the stamp format.</div>
+		</div>
+
+		<p>Breeding combed the collection over and over, searching for stills that could be cropped to fit the format. He handpicked images with bright colors, as some of the movies reflect a darker aesthetic that would look subdued at a smaller scale.</p>
+		<p>With images chosen, Breeding began to place them as a pane of 20 stamps — a format he quickly abandoned. The stamps show a variety of characters from different films in the series, so displaying them all together resulted in a busy, disjointed design.</p>
+		<p>Pushing creative limits yet again, Breeding decided to pursue an entirely new stamp format — a five-panel booklet that invites exploration, much like a reader paging through chapters of a book or a viewer returning to favorite scenes in the films. Each panel highlights a special part of the story: the main characters in the first movie; the beloved creatures; the important professors; the characters at an older age; and the notorious villains and final battle.</p>
+		<p>To unify the designs, he placed a Hogwarts seal at the center of each block of stamps — a small reminder of the enchanting world. The back of the booklet sets the tone for the entire concept: One panel includes a summary of the series and another shows an illustration of Hogwarts. A picture of Harry playing Quidditch on the cover balances the adventure with lightheartedness, just like the books and movies.</p>
+		<p>Though this small stamp booklet folds to a mere four-by-four inches, it successfully summarizes an intricate story — one that is still being told, retold, and enjoyed.</p>
+		<p>And just like it did with Harry, now a simple letter marked with a stamp can take us all into that mysterious world, too.</p>
+
+		<div class="legal">
+			Book popularity stats: Scholastic.<br>
+			Movie franchise ranking: Huffington Post.<br>
+			Harry Potter: TM &amp; &copy; Warner Bros. Entertainment Inc.<br>
+			(s13)
+		</div>
+
+	</div>
+
+</div>	</div>
+</div>
+
+  </div>
+
+    
+  </div>
+
+  <div class="footer-main">
+    <div class="footer-inner clearfix">
+      
+      
+      <div class="nav-footer clearfix">
+        <ul class="nav-list"><li class="big"><a href="/">Stories</a></li><li><a href="/departments/spotlight">In the Spotlight</a></li><li><a href="/departments/ask-expert">Ask the Expert</a></li><li><a href="/departments/collecting-culture">Collecting Culture</a></li><li><a href="/departments/design-studio">Design Studio</a></li><li><a href="/departments/life-letters">Life in Letters</a></li><li><a href="/departments/vault">From the Vault</a></li><li><a href="/departments/blog">On the Blog</a></li></ul><ul class="nav-list"><li class="big"><a href="/stamps">Stamps</a></li><li><a href="/stamps/series">Stamp Series</a></li><li><a href="/stamps/preview">Stamp Preview</a></li><li><a href="/stamps/archive">All Stamps</a></li><li class="break"><a href="/team/art-directors">Art Directors</a></li><li><a href="/team/artists">Stamp Artists</a></li><li><a href="/team/csac">CSAC Members</a></li></ul><ul class="nav-list"><li class="big"><a href="/calendar">Calendar</a></li><li class="big no-break"><a href="/products/correspondence">Correspondence</a></li><li class="big no-break"><a href="/products/collectibles">Collectibles</a></li><li class="big"><a href="/about">About this Site</a></li><li class="modaltrigger"><a href="#join">Join</a></li><li class="modaltrigger"><a href="#search">Search</a></li></ul>      </div>
+
+      <div class="push--national-postal-museum">
+        <span>Please visit our friends at the</span>
+        <a href="http://www.postalmuseum.si.edu/" target="_blank"><img src="/sites/all/themes/btp/img/logo-npm.gif" alt="National Postal Museum" /></a>
+      </div>
+
+      <div class="copyright">
+        Copyright &copy; 2016 USPS. All&nbsp;Rights&nbsp;Reserved. <br>
+        <a href="http://usps.com/privacypolicy">Privacy</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://usps.com">USPS.com</a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+  <div class="region region-modal">
+    <div class="modal">
+	<div class="modal-overlay"></div>
+	<div class="modal-inner">
+						<h2 class="block-title" >Join</h2>
+				
+		<div id="join" class="dialog-join"><div class="join-inner"><div class="header-modal header-join"><h2>Let’s stay in touch&hellip;</h2></div><div class="join-item join-uspsstamps"><h3 class="headline-large">In your inbox</h3><p>We’ll send you two emails each month, to be sure you’re the first to read the latest stamp news and stories.</p><a class="button-action" href="https://confirmsubscription.com/h/r/92580A380F183D2E">Get the Email</a></div><div class="join-item join-usap"><h3 class="headline-large">And your mailbox</h3><p>Want to peruse the current stamps, correspondence and collectibles <em>in print</em>? Don’t be without <cite>USA&nbsp;Philatelic</cite>, our beautiful (and free) quarterly&nbsp;catalog.</p><a class="button-action" href="https://subscribe.usap.co/?redirect=http://www.uspsstamps.com/stories/design-magic">Get the Catalog</a></div><div class="join-item join-stampsInSeason"><p>Find the perfect postage for invites, birthday cards, and everyday notes through <cite>Stamps in Season</cite> — our curated digest of recent stamps — and get tips on sending better mail.</p><a class="button-action" href="https://subscribe.usap.co/stamps-in-season/?redirect=http://www.uspsstamps.com/stories/design-magic">Get each Edition</a></div></div></div>	</div>
+</div>
+<div class="modal">
+	<div class="modal-overlay"></div>
+	<div class="modal-inner">
+						<h2 class="block-title" >Search</h2>
+				
+		<div id="search" class="searchform"><form method="post" action="/search/node" accept-charset="UTF-8">
+    <input type="text" name="keys" class="text-searchterm" placeholder="Search..." />
+    <input type="submit" class="submit-searchsite button-small button-submit" value="Search full site" />
+  </form></div><div class="search-results-wrap no-results-yet"><div class="search-results-wrap-inner clearfix"><div class="search-results search-results-stamps search-results-empty"><h3>Stamps</h3><ul class="results"></ul></div><div class="search-results search-results-stories search-results-empty"><h3>Stories</h3><ul class="results"></ul></div><div class="nosearch"><p class="notice notice-no-search">Type a search term above, and we’ll do our best to find related stamps and stories. You might enter a stamp name, Scott number, or keyword.<br><br>Or click a link below to find stamps and stories filtered by&nbsp;topic.</p><div class="topics-list clearfix"><ul><li><a href="/topics/animals">Animals</a></li><li><a href="/topics/arts">Arts</a></li><li><a href="/topics/entertainment">Entertainment</a></li><li><a href="/topics/history">History</a></li><li><a href="/topics/holidays">Holidays</a></li><li><a href="/topics/literature">Literature</a></li><li><a href="/topics/love">Love</a></li><li><a href="/topics/military">Military</a></li><li><a href="/topics/music">Music</a></li><li><a href="/topics/nature">Nature</a></li><li><a href="/topics/patriotic">Patriotic</a></li><li><a href="/topics/people">People</a></li><li><a href="/topics/places">Places</a></li><li><a href="/topics/public-awareness">Public Awareness</a></li><li><a href="/topics/science-and-tech">Science & Tech</a></li><li><a href="/topics/sports">Sports</a></li></ul></div></div></div></div>	</div>
+</div>
+  </div>
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-6725172-3']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+  <script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.jQuery || document.write("<script src='/sites/all/modules/contrib/jquery_update/replace/jquery/1.10/jquery.min.js'>\x3C/script>")
+//--><!]]>
+</script>
+<script type="text/javascript" src="http://uspsstamps.com/sites/default/files/js/js_3TykeRWpejhD4-J3vdlaNXdULg9xhOZhbsppK0o2bUs.js"></script>
+<script type="text/javascript" src="http://uspsstamps.com/sites/all/modules/custom/btpsearch/js/btpsearch.js?nwu07f"></script>
+<script type="text/javascript" src="http://uspsstamps.com/sites/default/files/js/js_EnAbOWxO8t4qLDtYJbgOPZt1_seHzxLF3-Nc0_jjkQU.js"></script>
+<script type="text/javascript" src="http://uspsstamps.com/sites/default/files/features-lib/jquery.ui.touch-punch.min.js?nwu07f"></script>
+<script type="text/javascript" src="http://uspsstamps.com/sites/default/files/features/harry-potter/js/local.js?nwu07f"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"btp","theme_token":"C0Qnyro_pUJD4xJQkLfgZb3w9wfjurCDQyaTkkoEzpg"}});
+//--><!]]>
+</script>
+
+
+
+  <!-- START Parse.ly Include: Standard -->
+  <div id="parsely-root" style="display: none">
+    <div id="parsely-cfg" data-parsely-site="uspsstamps.com"></div>
+  </div>
+  <script>
+  (function(s, p, d) {
+    var h=d.location.protocol, i=p+"-"+s,
+        e=d.getElementById(i), r=d.getElementById(p+"-root"),
+        u=h==="https:"?"d1z2jf7jlzjs58.cloudfront.net"
+        :"static."+p+".com";
+    if (e) return;
+    e = d.createElement(s); e.id = i; e.async = true;
+    e.src = h+"//"+u+"/p.js"; r.appendChild(e);
+  })("script", "parsely", document);
+  </script>
+  <!-- END Parse.ly Include -->
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"8cd02e822c","applicationID":"2722180","transactionName":"Y1dUbBZVXEQHBkMMC1odd1sQXV1ZSQtYAQFrQldfAWtEXgMS","queueTime":0,"applicationTime":57,"atts":"TxBXGl5PT0o=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

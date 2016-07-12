@@ -1,0 +1,3 @@
+<div class="no-post">
+    Hello! Not found...
+</div>
