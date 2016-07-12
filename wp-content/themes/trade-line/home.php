@@ -95,6 +95,41 @@ get_header(); ?>
 				<div class="body_home">
 					<div class="box_content_home">
 						<div class="box_product col-md-12 no-padding">
+							<?php
+							// going off on my own here
+							wp_reset_query();
+							$args_my_query = array(
+								'category_name' => 'slider-post',
+								'posts_per_page' => '3',
+							);
+							$my_query = new WP_Query($args_my_query); ?>
+							<?php
+							if ($my_query->have_posts()) {
+								$i = 0; ?>
+								<?php while ($my_query->have_posts()) {
+									$my_query->the_post();
+									$image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
+									?>
+							<div class="col-lg-3 col-md-6 col-sm-12">
+								<div class="">
+									<a href="<?php get_permalink($post->ID) ?>" title="<?php the_title()?>"><img src="<?php echo $image ?>" alt="<?php the_title()?>" name="<?php the_title()?>" onerror="this.src='http://tree.edu.vn/themes/default/images/root/no-image.gif';" width="100%"></a>
+									<br class="clear">
+								</div>
+								<div class="w292_title">
+									<a href="<?php get_permalink($post->ID) ?>" title="<?php the_title()?>"><?php the_title()?></a>
+								</div>
+								<div class="w292_des">
+									<p class="w292_des_text"></p><p><span style="color:#000000"><?php the_excerpt_max_length(150) ?></span></p>
+									<p></p>
+								</div>
+								<!--<div class="button_reg">
+                                    <a href="#form_reg" title="Tiến bộ từng ngày không phải chờ đến cuối khóa" class="view_all">Đăng ký học thử</a>
+                                    <br class="clear" />
+                                </div>-->
+							</div>
+								<?php } ?>
+							<?php }
+							?>
 							<div class="col-lg-3 col-md-6 col-sm-12">
 								<div class="">
 									<a href="http://tree.edu.vn/Khoa-hoc/1722/Khoa-Zero-tai-TREE.html" title="Tiến bộ từng ngày không phải chờ đến cuối khóa"><img src="http://tree.edu.vn/uploads/product/11417621324.jpg" alt="Tiến bộ từng ngày không phải chờ đến cuối khóa" name="Tiến bộ từng ngày không phải chờ đến cuối khóa" onerror="this.src='http://tree.edu.vn/themes/default/images/root/no-image.gif';" width="100%"></a>
