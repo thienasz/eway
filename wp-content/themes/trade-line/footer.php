@@ -74,6 +74,15 @@
 
 <!-- Theme -->
 <script src="<?php bloginfo('template_directory'); ?>/js/theme.js"></script>
+<script>
+	$(window).bind('scroll', function () {
+		if ($(window).scrollTop() > $('#masthead').outerHeight()) {
+			$('#main-nav').addClass('f-menu');
+		} else {
+			$('#main-nav').removeClass('f-menu');
+		}
+	});
+</script>
 <?php wp_footer(); ?>
 </body>
 </html>

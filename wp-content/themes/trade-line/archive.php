@@ -22,17 +22,37 @@ get_header(); ?>
 				?>
 			</header><!-- .page-header -->
 
-			<?php /* Start the Loop */ ?>
+			<?php /* Start the Loop */
+			$i= 0;
+			$count = count(get_posts());
+			?>
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php
-
 					/*
 					 * Include the Post-Format-specific template for the content.
 					 * If you want to override this in a child theme, then include a file
 					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 					 */
+				$a = $i % 3;
+				$b = $i % 6;
+				if($b == 0 && $i != 0){
+					echo '</div>';
 					get_template_part( 'template-parts/content', get_post_format() );
+
+				} elseif ($a == 0 ){
+					if($i == 3) echo '</div>';
+					echo '<div class="haiz clearfix">';
+					get_template_part( 'template-parts/content', get_post_format() );
+
+				} elseif(($i+1) == $count && $i > 3) {
+					get_template_part( 'template-parts/content', get_post_format() );
+					echo '</div>';
+				} else {
+					get_template_part( 'template-parts/content', get_post_format() );
+				}
+				$i++;
+
 				?>
 
 			<?php endwhile; ?>

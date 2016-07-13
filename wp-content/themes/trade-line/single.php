@@ -17,31 +17,52 @@ get_header(); ?>
 
 			<?php get_template_part( 'template-parts/content', 'single' ); ?>
 
-			<?php the_post_navigation(); ?>
+<!--			--><?php //the_post_navigation(); ?>
 
-			<?php
-//for use in the loop, list 5 post titles related to first tag on current post
-			$tags = wp_get_post_tags($post->ID);
-			if ($tags) {
-				echo 'Related Posts';
-				$first_tag = $tags[0]->term_id;
-				$args=array(
-					'tag__in' => array($first_tag),
-					'post__not_in' => array($post->ID),
-					'posts_per_page'=>5,
-					'caller_get_posts'=>1
-				);
-				$my_query = new WP_Query($args);
-				if( $my_query->have_posts() ) {
-					while ($my_query->have_posts()) : $my_query->the_post(); ?>
-						<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+			<div class="relatedposts">
+				<h3 class="bt0">CÁC TIN KHÁC:</h3>
+				<div class="box-relate top5">
+				<?php
+				$orig_post = $post;
+				global $post;
+				$tags = wp_get_post_tags($post->ID);
+				$cates = wp_get_post_categories($post->ID);
 
-						<?php
-					endwhile;
+				if (!empty($tags) || !empty($cates)) {
+					if(!empty($tags)){
+						$tag_ids = array();
+						foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;
+						$args=array(
+							'tag__in' => $tag_ids,
+							'post__not_in' => array($post->ID),
+							'posts_per_page'=>4, // Number of related posts to display.
+							'caller_get_posts'=>1
+						);
+					} else {
+						$args=array(
+							'category__in' => $cates,
+							'post__not_in' => array($post->ID),
+							'posts_per_page'=>4, // Number of related posts to display.
+							'caller_get_posts'=>1
+						);
+					}
+					$my_query = new wp_query( $args );
+					while( $my_query->have_posts() ) {
+						$my_query->the_post();
+						?>
+						<?php if(!empty(get_the_title())) {?>
+						<div class="relatedthumb">
+							<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>"><i class="fa fa-circle"></i> &nbsp;<span><?php the_title(); ?></span></a>
+						</div>
+<?php } ?>
+					<? }
 				}
+				$post = $orig_post;
 				wp_reset_query();
-			}
-			?>
+				?>
+				</div>
+			</div>
+
 		<?php endwhile; // End of the loop. ?>
 
 	</main><!-- #main -->

@@ -29,7 +29,7 @@ if ( ! function_exists( 'trade_line_add_theme_meta_box' ) ) :
 
 endif;
 
-add_action( 'add_meta_boxes', 'trade_line_add_theme_meta_box' );
+//add_action( 'add_meta_boxes', 'trade_line_add_theme_meta_box' );
 
 if ( ! function_exists( 'trade_line_render_theme_settings_metabox' ) ) :
 

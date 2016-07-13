@@ -75,7 +75,7 @@ if ( ! function_exists( 'trade_line_content_start' ) ) :
 	?><div id="content" class="site-content"><div class="container"><div class="inner-wrapper"><?php
 	}
 endif;
-add_action( 'trade_line_action_before_content', 'trade_line_content_start' );
+//add_action( 'trade_line_action_before_content', 'trade_line_content_start' );
 
 
 if ( ! function_exists( 'trade_line_content_end' ) ) :

@@ -160,9 +160,11 @@ if ( ! function_exists( 'trade_line_the_custom_logo' ) ) :
 			$site_logo = trade_line_get_option( 'site_logo' );
 			if ( ! empty( $site_logo ) ) {
 				?>
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-logo-link">
-					<img src="<?php echo esc_url( $site_logo ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
-				</a>
+				<div class="fix-logo">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-logo-link">
+						<img src="<?php echo esc_url( $site_logo ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
+					</a>
+				</div>
 				<?php
 			}
 		}
