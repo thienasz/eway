@@ -314,7 +314,7 @@
 
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
-<script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.js"></script>
+<script src="https://unpkg.com/imagesloaded@4.1/imagesloaded.pkgd.js"></script>
 <script type="text/javascript">
     jQuery(document).ready(function ($) {
         $('#main-article').isotope({
